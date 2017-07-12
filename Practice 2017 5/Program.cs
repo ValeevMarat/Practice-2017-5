@@ -12,16 +12,16 @@ namespace Practice_2017_5
         {
             double[,] matrix =new double[n,n];
              
-            for (int i = 0; i < n; i++)          // Обход всех рядов для записи
+            for (int i = 0; i < n; i++)     // Обход всех рядов для записи
             {
-                Console.WriteLine("Введите ВСЮ " + (i + 1) + "-ую строку (отделяя числа одним пробелом): ");
-                string row = Console.ReadLine();
-
-                for (int j = 0; j < n; j++)      // Обход всех столбцов для записи
-                    matrix[i, j] = double.Parse(row.Split(' ')[j]);
+                for (int j = 0; j < n; j++) // Обход всех столбцов для записи
+                {
+                    Console.Write("Введите элемент " + (i + 1) + "-ой строки, " + (j + 1) + "-го столбца: ");
+                    matrix[i, j] = Read.Double();
+                }
             }
             return matrix;
-        } // Чтение матрицы
+        }                      // Чтение матрицы
 
         static double MatrixsLeftBottomPartMax(double[,]matrix)
         {
@@ -37,8 +37,7 @@ namespace Practice_2017_5
 
         static void Main(string[] args)
         {
-            Console.Write("Введите размерность матрицы: ");
-            int n = int.Parse(Console.ReadLine());
+            Console.Write("Введите размерность матрицы: "); int n = Read.Natural();
 
             double[,] matrix = ReadMatrix(n);
             
